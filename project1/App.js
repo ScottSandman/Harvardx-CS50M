@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import PropTypes from 'prop-types'
+import {vibrate} from './utils'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ export default class App extends React.Component {
   incr = () => {
     //timer changeover at 0:00
     if (this.state.minutes == 0 && this.state.seconds == 0 ) {
+      vibrate()
       if (this.state.timer == 'Work') {
         this.setState({
           timer: 'Break',
@@ -118,7 +120,6 @@ export default class App extends React.Component {
           <TextInput
             style = {styles.input}
             keyboardType = 'numeric'
-            defaultValue = {this.base.minutes}
             onChangeText = {(text) => this.onTextChanged(text)}
             value = {this.state.minutes}
           />
