@@ -42,6 +42,7 @@ export default class App extends React.Component {
     //timer changeover at 0:00
     if (this.state.minutes == 0 && this.state.seconds == 0 ) {
       vibrate()
+      //to break timer
       if (this.state.timer == 'Work') {
         this.setState({
           timer: 'Break',
